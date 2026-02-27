@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd costuras-da-ba-seo && npx vite build",
+  "outputDirectory": "costuras-da-ba-seo/dist/public",
+  "installCommand": "cd costuras-da-ba-seo && pnpm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

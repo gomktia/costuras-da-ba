@@ -1,6 +1,6 @@
 /**
  * Costuras da Bá — Landing Page
- * Costureira artesanal em Moradas, Santa Maria, RS
+ * Costureira artesanal em Nossa Senhora de Lourdes, Santa Maria, RS
  *
  * Paleta: Verde Bebê oklch(0.72 0.08 155), Verde Musgo oklch(0.58 0.08 155),
  *         Creme #FAFAF7, Carvão Esverdeado oklch(0.30 0.02 155)
@@ -44,10 +44,30 @@ const BRAND = {
 
 const NAV_ITEMS = [
   { label: "Serviços", href: "#servicos" },
+  { label: "Preços", href: "#precos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
+
+const PRICES = {
+  geral: [
+    { service: "Barra calça Jeans", price: 35 },
+    { service: "Ajuste cós entre pernas", price: 55 },
+    { service: "Troca de zíper", price: 35 },
+    { service: "Ajuste short", price: 50 },
+    { service: "Ajuste de blusa", price: 35 },
+    { service: "Ajuste calça social", price: 50 },
+    { service: "Ajuste blazer", price: 80 },
+    { service: "Ajuste roupa infantil (até 10 anos)", price: 25 },
+    { service: "Jogo de Lençol", price: 175 },
+  ],
+  militar: [
+    { service: "Gandola", price: 60 },
+    { service: "Ajuste calça", price: 60 },
+    { service: "Camisa social militar", price: 60 },
+  ],
+};
 
 const SERVICES = [
   {
@@ -108,7 +128,7 @@ const STEPS = [
 const FAQ_ITEMS = [
   {
     q: "Quanto custa um ajuste de roupa?",
-    a: "O valor varia de acordo com o tipo de serviço. Entre em contato pelo WhatsApp para um orçamento personalizado e sem compromisso.",
+    a: "Confira nossa lista de preços na seção Preços. Valores a partir de R$ 25. Para orçamentos personalizados, entre em contato pelo WhatsApp.",
   },
   {
     q: "Qual o prazo de entrega?",
@@ -116,11 +136,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Onde fica a Costuras da Bá?",
-    a: "Estamos na Rua Pedro Santini, 3497, Casa 15, Quadra D, no bairro Moradas em Santa Maria, RS.",
+    a: "Estamos na Rua Pedro Santini, 3497, Casa 15, Quadra D — Condomínio Moradas, bairro Nossa Senhora de Lourdes, Santa Maria, RS. Ponto de referência: Clube Dores Sede Campestre.",
   },
   {
     q: "Quais as formas de pagamento?",
-    a: "Aceitamos Pix, dinheiro e cartão de crédito/débito.",
+    a: "Aceitamos Pix e dinheiro.",
   },
   {
     q: "Preciso agendar horário?",
@@ -404,6 +424,136 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* ─── PREÇOS ─── */}
+      <Section
+        id="precos"
+        className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ background: "oklch(0.95 0.02 90)" }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <p
+              className="text-sm uppercase tracking-[0.15em] font-medium mb-3"
+              style={{ color: BRAND.green }}
+            >
+              Valores transparentes
+            </p>
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-4"
+              style={{
+                fontFamily: "'DM Serif Display', serif",
+                color: BRAND.charcoal,
+              }}
+            >
+              Lista de Preços 2026
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              Confira nossos valores. Dúvidas? Entre em contato pelo WhatsApp para um orçamento personalizado.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Roupas em Geral */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden"
+            >
+              <div
+                className="px-7 py-5 flex items-center gap-3"
+                style={{ background: BRAND.green }}
+              >
+                <Scissors size={22} className="text-white" />
+                <h3
+                  className="text-xl font-bold text-white"
+                  style={{ fontFamily: "'DM Serif Display', serif" }}
+                >
+                  Roupas em Geral
+                </h3>
+              </div>
+              <div className="px-7 py-5">
+                <ul className="space-y-3">
+                  {PRICES.geral.map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center justify-between gap-3 text-sm"
+                    >
+                      <span className="text-foreground">{item.service}</span>
+                      <span className="stitch-line flex-1 mx-2 min-w-[2rem]" />
+                      <span
+                        className="font-bold whitespace-nowrap"
+                        style={{ color: BRAND.greenDark }}
+                      >
+                        R$ {item.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Uniforme Militar */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden"
+            >
+              <div
+                className="px-7 py-5 flex items-center gap-3"
+                style={{ background: BRAND.greenDark }}
+              >
+                <Star size={22} className="text-white" />
+                <h3
+                  className="text-xl font-bold text-white"
+                  style={{ fontFamily: "'DM Serif Display', serif" }}
+                >
+                  Uniforme Militar
+                </h3>
+              </div>
+              <div className="px-7 py-5">
+                <ul className="space-y-3">
+                  {PRICES.militar.map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center justify-between gap-3 text-sm"
+                    >
+                      <span className="text-foreground">{item.service}</span>
+                      <span className="stitch-line flex-1 mx-2 min-w-[2rem]" />
+                      <span
+                        className="font-bold whitespace-nowrap"
+                        style={{ color: BRAND.greenDark }}
+                      >
+                        R$ {item.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="px-7 pb-5">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80"
+                  style={{ color: BRAND.green }}
+                >
+                  Solicitar orçamento
+                  <ChevronRight size={16} />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-8">
+            * Valores de referência. Podem variar conforme o tipo e estado da peça. Consulte pelo WhatsApp.
+          </p>
+        </div>
+      </Section>
+
       {/* ─── SOBRE ─── */}
       <Section
         id="sobre"
@@ -461,7 +611,7 @@ export default function Home() {
                   o mesmo carinho e dedicação. Com mais de 15 anos de
                   experiência em costura artesanal, oferecemos serviços
                   especializados em reparos e ajustes de roupas aqui no
-                  bairro <strong>Moradas</strong>, em{" "}
+                  bairro <strong>Nossa Senhora de Lourdes</strong>, em{" "}
                   <strong>Santa Maria</strong>.
                 </p>
                 <p>
@@ -719,8 +869,8 @@ export default function Home() {
                   icon: <MapPin size={22} />,
                   label: "Endereço",
                   value:
-                    "Rua Pedro Santini, 3497, Casa 15, Quadra D — Moradas, Santa Maria, RS",
-                  href: "https://maps.google.com/?q=Rua+Pedro+Santini+3497+Moradas+Santa+Maria+RS",
+                    "Rua Pedro Santini, 3497, Casa 15, Quadra D — Cond. Moradas, Nossa Sra. de Lourdes, Santa Maria, RS",
+                  href: "https://maps.google.com/?q=Rua+Pedro+Santini+3497+Nossa+Senhora+de+Lourdes+Santa+Maria+RS",
                 },
                 {
                   icon: <Clock size={22} />,
@@ -779,7 +929,7 @@ export default function Home() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização Costuras da Bá — Moradas, Santa Maria, RS"
+                title="Localização Costuras da Bá — Nossa Senhora de Lourdes, Santa Maria, RS"
               />
             </div>
           </div>
@@ -810,7 +960,7 @@ export default function Home() {
               © 2026 Costuras da Bá. Todos os direitos reservados.
               <br className="sm:hidden" />{" "}
               <span className="hidden sm:inline">| </span>
-              Moradas, Santa Maria, RS
+              Nossa Senhora de Lourdes, Santa Maria, RS
             </p>
           </div>
         </div>
