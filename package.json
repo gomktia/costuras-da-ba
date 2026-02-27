@@ -1,0 +1,8 @@
+{
+  "name": "costuras-da-ba",
+  "private": true,
+  "scripts": {
+    "build": "cd costuras-da-ba-seo && npm install && npx vite build",
+    "vercel-build": "cd costuras-da-ba-seo && npm install && npx vite build"
+  }
+}
